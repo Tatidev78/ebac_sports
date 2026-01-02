@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { useGetProdutosQuery } from '../store/api'
 import { adicionarAoCarrinho } from '../store/cartSlice'
 
-const ProdutosComponent = () => {
+const Produtos = () => {
   const dispatch = useDispatch()
   const { data: produtos = [], isLoading } = useGetProdutosQuery()
 
@@ -20,13 +20,12 @@ const ProdutosComponent = () => {
           key={produto.id}
           produto={produto}
           estaNosFavoritos={false}
-          aoComprar={(produto) =>
-            dispatch(adicionarAoCarrinho(produto))
-          }
+          favoritar={() => {}}
+          aoComprar={() => dispatch(adicionarAoCarrinho(produto))}
         />
       ))}
     </S.Produtos>
   )
 }
 
-export default ProdutosComponent
+export default Produtos
