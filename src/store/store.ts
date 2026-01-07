@@ -1,3 +1,4 @@
+import favoritesReducer from './favoriteSlice'
 import { configureStore } from '@reduxjs/toolkit'
 import cartReducer from './cartSlice'
 import { api } from './api'
@@ -5,6 +6,7 @@ import { api } from './api'
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
+    favorites: favoritesReducer,
     [api.reducerPath]: api.reducer
   },
   middleware: (getDefaultMiddleware) =>
